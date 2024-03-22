@@ -1,14 +1,23 @@
+"use client"
+import { useEffect, useState } from "react";
+
 function SendMessage() {
+    const [newMessage,setNewMessage] = useState(null)
+
+    function handleMessage(){
+        console.log({userId:5555,message:newMessage})
+    }
+
   return (
     <div className="w-full px-5 fixed bottom-16 right-0 bg-white">
       <div className="relative">
         <input
             type="text"
             placeholder="Type Something"
-            cont
+            onChange={(e)=>{setNewMessage(e.target.value)}}
             className="w-full bg-slate-100 outline-none px-2 pr-12 h-12 mt-4 rounded-xl mb-4"
         />
-        <span className="absolute right-3 top-7 bg-blue-700 w-5 h-5 flex p-5 items-center justify-center rounded-full ">
+        <span onClick={handleMessage} className="absolute right-3 top-7 bg-blue-700 w-5 h-5 flex p-5 items-center justify-center rounded-full ">
 
         <svg
             xmlns="http://www.w3.org/2000/svg"

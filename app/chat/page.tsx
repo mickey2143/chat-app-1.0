@@ -8,8 +8,6 @@ export default async function Page() {
     {userId:5555,message:"when did you think it can happen"},
     {userId:2332,message:"Tommorrow"},
 
-
-
   ]
   
   return (
