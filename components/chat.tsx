@@ -1,7 +1,7 @@
 import SendMessage from "@/components/sendMessage";
 import UserChat from "./userChat";
 import Link from "next/link";
-function chat({messages}) {
+function chat({messages}:any) {
   return (
     <div className="w-full  h-full flex items-center flex-col">
       <div className="flex items-center gap-8 top-0 mb-9 sticky shadow-sm px-5 right-0 pb-5 pt-10 z-20 bg-white w-full ">

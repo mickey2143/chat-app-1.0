@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-function Message({users}) {
+function Message({users}:any) {
   return (
     <>
-    {users.map((user)=>( <Link
+    {users.map((user:any)=>( <Link
       href={`./chat/${user.id}`}
       className="flex w-full justify-stretch h-20 items-center mb-4  px-5 "
       key={user.id}
