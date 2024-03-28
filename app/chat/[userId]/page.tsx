@@ -1,4 +1,4 @@
-import Chat from "@/components/chat"
+import Chat from "@/components/conversation/chat"
 
 export default function Page({ params }: { params: { userId: string } }) {
    

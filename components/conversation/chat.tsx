@@ -1,4 +1,4 @@
-import SendMessage from "@/components/sendMessage";
+import SendMessage from "./sendMessage";
 import UserChat from "./userChat";
 import Link from "next/link";
 function chat({messages}:any) {

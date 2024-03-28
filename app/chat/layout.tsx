@@ -1,5 +1,3 @@
-import { GeistSans } from "geist/font/sans";
-import "./globals.css";
 import Nav from "@/components/nav";
 
 const defaultUrl = process.env.VERCEL_URL

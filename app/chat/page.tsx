@@ -1,19 +1,31 @@
-import Chat from "@/components/chat"
+import Nav from "@/components/nav";
+import Message from "@/components/conversation/messages";
+import SearchBar from "@/components/searchBar";
+import Chat from "@/components/conversation/chat";
 
-export default async function Page() {
+export default async function Index() {
+  const users = [
+    {
+      id: "f35341d0-c283-4690-a97b-8099f439f486",
+      userName: "Michael Ani",
+      lastMsg: "Come and eat better food",
+    },
+    {
+      id: "f35343TY9-c283-4690-a97b-8099f439f486",
+      userName: "HeartBeat",
+      lastMsg: "Exams is tommorrow",
+    },
+    {
+      id: "f35341d0-3y42-4690-a97b-8099f439f486",
+      userName: "Moses Bliss",
+      lastMsg: "Come and cook",
+    },
+  ];
 
-  const messages = [
-    {userId:2332,message:"Let us go on vactions i have plans"},
-    {userId:5555,message:"why do you think so"},
-    {userId:5555,message:"when did you think it can happen"},
-    {userId:2332,message:"Tommorrow"},
-
-  ]
-  
   return (
-    <div className="w-full relative pb-52">
-      <Chat messages={messages} />
-     
-   </div>
+    <main className="w-full mb-20 h-full">
+      <SearchBar />
+      <Message users={users} />
+    </main>
   );
 }
