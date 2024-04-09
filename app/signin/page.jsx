@@ -2,8 +2,31 @@
 import CustomInput from "@/components/customComponents/input";
 import Button from "@/components/customComponents/button";
 import Link from "next/link";
+import { useState } from "react";
 
 const SignIn = () => {
+  const [busy, setBusy] = useState(false);
+  const handleSigin = async (e) => {
+    e.preventDefault();
+    try {
+      fetch("/api/login", {
+        method: "POST",
+        body: JSON.stringify({ username: "Michaelabolo", password: "1990" }),
+      })
+        .then((res) => {
+          setBusy(true);
+          return res.json();
+        })
+        .then((data) => console.log(data))
+        .catch((err) => {
+          setBusy(false);
+          console.log(err);
+        })
+        .finally(() => {
+          setBusy(false);
+        });
+    } catch (error) {}
+  };
   return (
     <div className="w-full h-screen p-5 flex items-center justify-between px-10">
       <div className="w-1/2">
@@ -18,7 +41,7 @@ const SignIn = () => {
         </p>
       </div>
       <form
-        onSubmit={(e) => e.preventDefault()}
+        onSubmit={(e) => handleSigin(e)}
         className="bg-white max-w-6xl w-1/2 p-5 flex items-center justify-center flex-col"
       >
         <div className=" w-full mb-5">
@@ -44,14 +67,15 @@ const SignIn = () => {
             type="primary"
             onClick={(e) => console.log(e)}
             text="SignIn"
+            busy={busy}
           />
         </div>
 
         <p className="w-full flex text-sm">
           Already a User?{" "}
-          <Link href={"./signup"}>
-            <p className="pl-2 text-blue-700">Signup</p>
-          </Link>
+          <p className="pl-2 text-blue-700">
+            <Link href={"./signup"}>Signup</Link>
+          </p>
         </p>
       </form>
     </div>
