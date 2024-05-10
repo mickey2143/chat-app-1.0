@@ -5,6 +5,7 @@ const CustomInput = ({
   label,
   value,
   handleInput,
+  readOnly = false
 }) => {
   return (
     <>
@@ -20,6 +21,7 @@ const CustomInput = ({
         placeholder={placeholder}
         value={value}
         onInput={(e) => handleInput(e.target.value)}
+        readOnly={readOnly}
       />
     </>
   );

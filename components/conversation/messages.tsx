@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-async function Message() {
+function Message() {
   let [users, setUsers] = useState([]);
 
   useEffect(() => {

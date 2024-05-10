@@ -1,35 +1,72 @@
-"use client";
-import Button from "@/components/customComponents/button";
+import Link from "next/link";
+import Image from "next/image";
+import chatImage from "./chatting.svg";
+import TopNav from "@/components/topNav";
+
 export default async function Index() {
   return (
     <div className="h-screen">
-      <nav className="px-10 h-10 items-center flex">Anony</nav>
-      <main className="w-full h-full flex items-center justify-between px-10 space-x-2">
-        <div className="w-1/2 mb-3">
-          <h1 className="text-5xl font-bold mb-2">Chat Anonymously</h1>
-          <p className="text-xl">
-            With People of Same{" "}
-            <span className="text-2xl text-blue-700">Likes</span>
-          </p>
-          <div className="w-60 pt-3">
-            <Button
-              text={"Get Started"}
-              type={"primary"}
-              onClick={() => console.log("clicked")}
-            />
+      <TopNav />
+
+      <main className="w-full h-full md:px-10 px-7  text-blue-950">
+        <section className=" w-full md:flex  md:space-x-2 md:pt-0 pt-10">
+          <div className="md:w-1/2 mb-3 flex  justify-center flex-col w-full">
+            <h1 className="text-3xl md:text-5xl font-bold mb-3">
+              Chat Anonymously With People of same Likes
+            </h1>
+            <p className="mb-3 ">
+              Do you love sports,games or news Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Qui sequi fuga debitis pariatur
+              aspernatur nam atque eligendi officiis amet tempora voluptatem
+            </p>
+            <div className="w-60 pt-3">
+              <Link
+                href={"/signup"}
+                className="w-full  bg-blue-950 px-7 py-3 text-white rounded-lg"
+              >
+                Get Started
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="w-1/2">
-          <h3 className="font-extrabold text-2xl pb-5">
-            Anonymounsly chat with people from different Locations
-          </h3>
-          <p className="">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae ipsum
-            voluptatum eum consectetur cum, in porro deleniti repellat possimus
-            dicta sequi delectus aliquam inventore blanditiis, facere at autem
-            exercitationem. Quibusdam.
+          <div className="md:w-1/2 h-1/2 mb-10 w-full flex justify-center">
+            <Image src={chatImage} alt="an image of a chat" />
+          </div>
+        </section>
+
+        <section>
+          <h2 className="font-bold md:text-5xl text-3xl w-full flex justify-center ">
+            What it is all About
+          </h2>
+          <p className="w-full flex justify-center text-sm">
+            It is an open source, anonymous conversation platform.
           </p>
-        </div>
+
+          <div className="grid-cols-3 grid mt-10 pb-10 gap-6 sm:grid-cols-2">
+            <div>
+              <h4 className="text-2xl font-bold">No tracking</h4>
+              <p>
+                We don't use cookies or other scripts that track and identify
+                users, so you stay private
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-2xl font-bold">Open Sourced</h4>
+              <p>
+                We've open sourced our code to the world. No tricks or backdoors
+                up our sleeves.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-2xl font-bold">How to Use It</h4>
+              <p>
+                Register with a Unique Username and Password and choose your
+                conversion Likes
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

@@ -10,13 +10,13 @@ export async function GET(request) {
       "X-RapidAPI-Key": "a9b232b5aemsh13fdbd1f88705cap1a7007jsndb9fd6f25d0b",
       "X-RapidAPI-Host": "random-username-generate.p.rapidapi.com",
     },
+    cache: "no-store",
   };
 
   try {
     const response = await fetch(url, options);
-    const result = await response.text();
-    const newData = JSON.parse(result);
-    username = newData.items.username;
+    const result = await response.json();
+    username = result.items.username;
   } catch (error) {
     console.error(error);
   }

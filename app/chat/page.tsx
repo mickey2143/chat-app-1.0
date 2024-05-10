@@ -1,3 +1,4 @@
+"use client";
 import Message from "@/components/conversation/messages";
 import SearchBar from "@/components/searchBar";
 

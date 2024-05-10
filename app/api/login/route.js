@@ -1,9 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
+const bcrypt = require("bcrypt");
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+function validateUser(hash) {
+  bcrypt
+    .compare(password, hash)
+    .then((res) => {
+      console.log(res); // return true
+    })
+    .catch((err) => console.error(err.message));
+}
 
 export async function POST(request) {
-  console.log(request.body);
+  const body = await request.json();
+  const allUsers = await prisma.users.findMany();
 
-  NextResponse.json({ users: [1, 2, 3, 4, 5, 6, 7, 7] });
-
-  return Response.json({ users: [1, 2, 3, 4, 5, 6, 7, 7] });
+  console.log(allUsers);
+  return Response.json({ ...body });
 }
