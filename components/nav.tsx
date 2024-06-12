@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-
 function Nav() {
   return (
     <nav className="flex w-full bg-white justify-between items-center text-black fixed bottom-0 px-5 left-0">
+      {/* <nav className="flex w-36 h-full bg-white items-center text-black fixed flex-col px-5 left-0"> */}
       <Link href={"./"} className="flex flex-col items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +11,7 @@ function Nav() {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6 text-blue-700"
+          className="w-6 h-6 text-blue-950"
         >
           <path
             strokeLinecap="round"
@@ -19,7 +19,7 @@ function Nav() {
             d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"
           />
         </svg>
-        <p className="text-blue-700">Chat</p>
+        <p className="text-blue-950">Chat</p>
       </Link>
       <Link href={"./call"} className="flex flex-col items-center ">
         <svg
@@ -39,7 +39,10 @@ function Nav() {
 
         <p>Call</p>
       </Link>
-      <Link href={"./search"} className="flex flex-col items-center rounded-full bg-blue-700 p-6">
+      <Link
+        href={"./search"}
+        className="flex flex-col items-center rounded-full bg-blue-950 p-6 mb-7"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

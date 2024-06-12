@@ -1,6 +1,6 @@
 function SearchBar() {
   return (
-    <div className="w-full sticky top-0 bg-white z-20 px-5 py-3">
+    <div className="w-full fixed bg-white z-20 px-5 py-3">
       <div className="relative h-12 my-5">
         <input
           type="search"

@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className="bg-white text-foreground h-screen w-full">
           {children}
-          <ToastContainer />
+          <ToastContainer className={"w-1/2"} />
         </body>
       </html>
     </Providers>

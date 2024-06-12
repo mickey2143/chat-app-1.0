@@ -12,14 +12,14 @@
     --foreground: 200 50% 3%;
   }
 
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     :root {
       --background: 200 50% 3%;
       --btn-background: 200 10% 9%;
       --btn-background-hover: 200 10% 12%;
       --foreground: 200 20% 96%;
     }
-  }
+  } */
 }
 
 @layer base {
@@ -39,8 +39,8 @@ body {
 }
 
 .slide-out {
-  transition: all ease-out;
-  transition-duration: 4s;
+  transition: all cubic-bezier(1, 0.64, 1, 0.94);
+  transition-duration: 499ms;
   transition-behavior: inherit;
 }
 .slide-in {
@@ -59,3 +59,20 @@ body {
     font-size: 5px;
   }
 } */
+
+.shimer {
+  border: 1px solid transparent;
+  background: #d9d9d9;
+}
+
+@keyframes shimer {
+  0% {
+    background-position: -450px 0;
+
+    background: #d9d9d9;
+  }
+  100% {
+    background-position: 450px 0;
+    background: red;
+  }
+}

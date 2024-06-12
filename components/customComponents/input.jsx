@@ -17,7 +17,7 @@ const CustomInput = ({
         type={type}
         name={name}
         id={name}
-        className="rounded-md border w-full outline-none h-9 px-3 text-sm"
+        className="rounded-md border w-full outline-none border-blue-950 placeholder:text-blue-950 h-9 px-3 text-sm"
         placeholder={placeholder}
         value={value}
         onInput={(e) => handleInput(e.target.value)}

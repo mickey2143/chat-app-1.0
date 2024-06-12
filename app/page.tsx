@@ -8,8 +8,8 @@ export default async function Index() {
     <div className="h-screen">
       <TopNav />
 
-      <main className="w-full h-full md:px-10 px-7  text-blue-950">
-        <section className=" w-full md:flex  md:space-x-2 md:pt-0 pt-10">
+      <main className="w-full h-full pt-24 text-blue-950">
+        <section className=" w-full md:flex md:px-10 px-7 md:space-x-2 md:pt-0 pt-10">
           <div className="md:w-1/2 mb-3 flex  justify-center flex-col w-full">
             <h1 className="text-3xl md:text-5xl font-bold mb-3">
               Chat Anonymously With People of same Likes
@@ -33,24 +33,24 @@ export default async function Index() {
           </div>
         </section>
 
-        <section>
-          <h2 className="font-bold md:text-5xl text-3xl w-full flex justify-center ">
+        <section className="md:px-10 px-7">
+          <h2 className="font-bold md:text-5xl text-3xl w-full flex justify-center mt-10">
             What it is all About
           </h2>
           <p className="w-full flex justify-center text-sm">
             It is an open source, anonymous conversation platform.
           </p>
 
-          <div className="grid-cols-3 grid mt-10 pb-10 gap-6 sm:grid-cols-2">
-            <div>
-              <h4 className="text-2xl font-bold">No tracking</h4>
+          <div className="md:grid-cols-3 sm:grid-col-2 grid mt-10 pb-10 gap-6 ">
+            <div className="shadow-lg p-5 border-blue-950 border rounded-lg ">
+              <h4 className="md:text-3xl text-2xl font-bold">No tracking</h4>
               <p>
                 We don't use cookies or other scripts that track and identify
                 users, so you stay private
               </p>
             </div>
 
-            <div>
+            <div className="shadow-lg p-5 border-blue-950 border rounded-lg ">
               <h4 className="text-2xl font-bold">Open Sourced</h4>
               <p>
                 We've open sourced our code to the world. No tricks or backdoors
@@ -58,12 +58,32 @@ export default async function Index() {
               </p>
             </div>
 
-            <div>
+            <div className="shadow-lg p-5 border-blue-950 border rounded-lg ">
               <h4 className="text-2xl font-bold">How to Use It</h4>
               <p>
                 Register with a Unique Username and Password and choose your
                 conversion Likes
               </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-blue-950 w-full h-screen md:px-10 pt-7 px-7 ">
+          <div className="flex justify-center w-full">
+            <p className="text-white">Get stated</p>
+          </div>
+
+          <div className="grid md:grid-cols-4 grid-cols-2 text-white">
+            <div>
+              <h1 className="text-xl">Products</h1>
+              <ol>
+                <ul>ORM</ul>
+                <ul>ORM</ul>
+                <ul>ORM</ul>
+                <ul>ORM</ul>
+                <ul>ORM</ul>
+                <ul>ORM</ul>
+              </ol>
             </div>
           </div>
         </section>

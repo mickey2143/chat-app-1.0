@@ -23,7 +23,6 @@ export async function POST(request) {
     },
   });
 
-  console.log(!user);
   if (user.length <= 0) {
     const hashPassword = await encryptPassword(body.password);
     const newUser = await prisma.users.create({
@@ -40,5 +39,4 @@ export async function POST(request) {
   } else {
     return Response.json({ success: false, error: "User already exists" });
   }
-  // return Response.json(newUser);
 }
