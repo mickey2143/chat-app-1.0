@@ -3,7 +3,7 @@ import React from "react";
 const TopNav = () => {
   return (
     <nav className="md:px-10 px-7 h-20 items-center justify-between w-full flex shadow-md fixed bg-white ">
-      <span className="text-blue-950 text-xl">AnoniChat</span>
+      <span className="text-blue-950 text-xl">AnonyChat</span>
       <span className="md:hidden flex">
         <svg
           xmlns="http://www.w3.org/2000/svg"
