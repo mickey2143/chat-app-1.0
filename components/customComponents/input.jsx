@@ -5,11 +5,12 @@ const CustomInput = ({
   label,
   value,
   handleInput,
-  readOnly = false
+  readOnly = false,
+  labelColor = "text-black"
 }) => {
   return (
     <>
-      <label htmlFor={name} className="block mb-1">
+      <label htmlFor={name} className={`block mb-1 ${labelColor}`}>
         {label}
       </label>
 

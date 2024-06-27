@@ -7,7 +7,7 @@ export const authConfig = {
   },
   callbacks: {
       authorized({ auth, request: { nextUrl } }) {
-        const isLoggedIn = false;
+        const isLoggedIn = true;
         const isOnDashboard = nextUrl.pathname.startsWith('/chat');
         if (isOnDashboard) {
           if (isLoggedIn) return true;
