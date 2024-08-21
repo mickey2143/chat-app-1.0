@@ -1,6 +1,5 @@
 // import {configureStore,createSlice} from "@reduxjs/toolkit"
 
-
 // interface UserData {
 //     id:string,
 //     userName:string,
@@ -21,7 +20,7 @@
 //   userName:"Michael Ani",
 //   lastMsg:"Come and cook"
 // }
-//   ] 
+//   ]
 
 // const userSlice = createSlice({
 //     name: 'userslice',

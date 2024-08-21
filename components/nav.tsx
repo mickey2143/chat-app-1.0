@@ -37,7 +37,7 @@ function Nav() {
           />
         </svg>
 
-        <p>Call</p>
+        <p>Clan</p>
       </Link>
       <Link
         href={"./search"}

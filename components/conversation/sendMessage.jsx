@@ -18,7 +18,7 @@ function SendMessage() {
   }
 
   return (
-    <div className="w-full px-5 fixed bottom-28 right-0 bg-white">
+    <div className="w-full px-5 fixed bottom-24 right-0 bg-white">
       <div className="relative">
 
         <textarea

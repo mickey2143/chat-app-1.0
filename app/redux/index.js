@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
-import numSlice from "./num";
+import newGroupSlice from "./newGroup";
 
 const store = configureStore({
   reducer: {
-    num: numSlice,
+    open: newGroupSlice,
   },
 });
 setupListeners(store.dispatch);

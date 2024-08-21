@@ -6,10 +6,10 @@ import Button from "./customComponents/button"
 
 function NewGroup(props) {
     const [group, setGroup] = useState("")
-    return (
-        <div className="fixed top-0 h-full bg-white/30 w-full backdrop-blur-sm flex items-center justify-center">
-            <div className="w-full bg-blue-950 px-8 pb-14 absolute">
-                <div className="bg-black relative left-80 w-14 h-14 text-white flex items-center justify-center -top-8">
+    return false && (
+        <div className="fixed top-0 h-full bg-white/30   w-full backdrop-blur-sm flex items-center justify-center">
+            <div className="w-5/6  bg-blue-950 px-8 pb-14 absolute">
+                <div className="bg-black relative w-14 h-14 text-white flex items-center justify-center -top-8">
                     x
                 </div>
                 <CustomInput

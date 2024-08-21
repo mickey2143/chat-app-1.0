@@ -2,6 +2,36 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const groups = [
+  {
+    id: 1,
+    topic: "food",
+    members: 200,
+    createdAt: "2022",
+    updatedAt: "2022",
+    groupName: "foodie",
+    description: "A group we talk about food and latest cuisines",
+  },
+  {
+    id: 2,
+    topic: "food",
+    members: 200,
+    createdAt: "2022",
+    updatedAt: "2022",
+    groupName: "FootBall",
+    description: "A group we talk about food and latest cuisines",
+  },
+  {
+    id: 3,
+    topic: "food",
+    members: 200,
+    createdAt: "2022",
+    updatedAt: "2022",
+    groupName: "Football",
+    description: "A group we talk about food and latest cuisines",
+  },
+];
+
 function Message() {
   let [users, setUsers] = useState([]);
   let [usersReady, setUsersReady] = useState(false);
@@ -24,7 +54,7 @@ function Message() {
         >
           <div className="w-14 h-14 shimer text-white flex items-center justify-center rounded-full "></div>
 
-          <div className="w-3/4 ml-4 space-y-3">
+          <div className="w-full ml-4 space-y-3">
             <span className="flex justify-between">
               <h3 className=" w-28 shimer rounded-3xl h-3 text-transparent">
                 " "
@@ -40,7 +70,7 @@ function Message() {
   }
 
   function UsersTemp() {
-    return users.map((user: any) => (
+    return groups.map((user: any) => (
       <>
         <Link
           href={`./chat/${user.id}`}
@@ -51,13 +81,14 @@ function Message() {
             MA
           </div>
 
-          <div className="w-3/4 ml-4">
+          <div className=" ml-4 w-full">
             <span className="flex justify-between">
-              <h3 className="font-bold">{user.userName}</h3>
+              <h3 className="font-bold">{user.groupName}</h3>
               <p>10:01</p>
             </span>
-            <p>{user.lastMsg}</p>
-            8148382148
+            <p>
+              {"Michael"}:{"Who is a man"}
+            </p>
           </div>
         </Link>
       </>

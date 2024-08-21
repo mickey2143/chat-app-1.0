@@ -12,8 +12,8 @@ export async function POST(req) {
   });
 
   if (user.length > 0) {
-    return Response.json({ user: true });
-  } else {
     return Response.json({ user: false });
+  } else {
+    return Response.json({ user: true });
   }
 }

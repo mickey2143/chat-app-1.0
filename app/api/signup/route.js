@@ -25,6 +25,7 @@ export async function POST(request) {
 
   if (user.length <= 0) {
     const hashPassword = await encryptPassword(body.password);
+    const recovery = crypto.randomUUID();
     const newUser = await prisma.users.create({
       data: {
         username: body.username,
@@ -32,10 +33,19 @@ export async function POST(request) {
       },
     });
 
-    return Response.json(
-      { success: true, newUser },
-      { status: 200, statusText: "success" }
-    );
+    console.log(hashPassword);
+    if (newUser.password) {
+      return Response.json(
+        { success: true, newUser },
+        { status: 200, statusText: "success" }
+      );
+    } else {
+      return Response.json({
+        success: false,
+        error: "Cannot Create Account Try Agian Later",
+        recovery,
+      });
+    }
   } else {
     return Response.json({ success: false, error: "User already exists" });
   }
