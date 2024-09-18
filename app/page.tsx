@@ -68,9 +68,9 @@ export default async function Index() {
           </div>
         </section>
 
-        <section className="bg-blue-950 w-full h-full md:px-20 pt-7 px-7 justify-between items-center">
-          <div className="flex justify-center w-full">
-            <p className="text-white mr-4">Get stated</p>
+        <section className="bg-blue-950 w-full  md:px-20 p-7 justify-between items-center">
+          <div className="flex flex-coloumn items-center justify-center w-full">
+            <p className="text-white mr-4">Made With Love by Mykel_ani</p>
             <div className="w-60 pt-3">
               <Link
                 href={"/signup"}

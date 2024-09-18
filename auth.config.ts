@@ -8,7 +8,7 @@ export const authConfig = {
   callbacks: {
       authorized({ auth, request: { nextUrl } }) {
         const isLoggedIn = true;
-        const isOnDashboard = nextUrl.pathname.startsWith('/chat');
+        const isOnDashboard = nextUrl.pathname.startsWith('/chats');
         if (isOnDashboard) {
           if (isLoggedIn) return true;
           return false; // Redirect unauthenticated users to login page

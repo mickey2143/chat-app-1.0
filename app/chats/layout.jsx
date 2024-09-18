@@ -14,9 +14,8 @@ export default function RootLayout({
     children,
 }) {
     return (
-        <div className="flex justify-between gap-3">
-            <ChatSidebar />
+        <>
             {children}
-        </div>
+        </>
     );
 }
