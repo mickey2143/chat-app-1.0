@@ -12,6 +12,7 @@ const SignIn = () => {
         <div className="md:w-1/2 w-full ">
           <Image
             src={signImage}
+            alt="A young lady with a mobile phone near a chat page in a big mobile phone"
           />
         </div>
         <Form />

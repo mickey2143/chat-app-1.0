@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Providers from "./redux/Provider"
 import NewGroup from "@/components/NewGroup";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata = {
   title: "Chat with Friends",
@@ -13,14 +14,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   return (
-    <Providers >
-      <html lang="en">
-        <body className="bg-white text-foreground h-screen w-full">
-          {children}
-          <ToastContainer className={"w-1/2"} />
-          <NewGroup />
-        </body>
-      </html>
-    </Providers>
+    // <SessionProvider>
+      <Providers >
+        <html lang="en">
+          <body className="bg-white text-foreground h-screen w-full">
+            {children}
+            <ToastContainer className={"w-1/2"} />
+            <NewGroup />
+          </body>
+        </html>
+      </Providers>
+    // </SessionProvider>
   );
 }

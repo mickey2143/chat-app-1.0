@@ -1,4 +1,4 @@
-import Nav from "@/components/nav";
+import ChatSidebar from "@/components/chatsidebar"
 
 const defaultUrl = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
@@ -12,13 +12,10 @@ export const metadata = {
 
 export default function RootLayout({
     children,
-}: {
-    children: React.ReactNode;
 }) {
     return (
         <>
             {children}
-            <Nav />
         </>
     );
 }

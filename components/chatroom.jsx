@@ -2,20 +2,24 @@
 import { useSelector, useDispatch } from "react-redux"
 import { setId } from "@/app/redux/openGroup"
 import MessageBox from "@/components/MessageBox"
+import { useEffect, useState } from "react"
 
-async function ChatRoom(props) {
-    let chats = []
+function ChatRoom({ page }) {
+    let [chats, setChats] = useState()
     const dispatch = useDispatch()
     const openGroup = useSelector((state) => state.updateGroupId.groupId)
-    try {
-        const res = await fetch(`/api/chats/${openGroup}`, { method: "GET" });
-        const data = await res.json()
-        console.log(data, openGroup)
-        chats = data
-    } catch (error) {
-        console.log(error)
-    }
 
+
+    useEffect(() => {
+
+        fetch(`/api/chats/${openGroup}`, { method: "GET" }).then((res) => res.json()).then((data) => {
+            console.log(data)
+            setChats(data)
+        }).catch(error => {
+            console.log(error)
+        })
+
+    }, [openGroup])
     function handleReturn() {
         dispatch(setId(false))
 
@@ -36,14 +40,14 @@ async function ChatRoom(props) {
                 </div>
                 <div className=" w-full ">
                     <div className="flex justify-between ">
-                        <h3 className="text-sm">{chats.groupName}</h3>
+                        <h3 className="text-sm">{chats?.groupName}</h3>
                         <p className="text-xs text-red-500">Report</p>
 
                     </div>
                 </div>
             </div>
-            <div className="py-3 px-5 space-y-5 chats overflow-hidden  hover:overflow-auto">
-                <MessageBox chats={chats.data} />
+            <div className="pb-28 pt-3 px-5 space-y-5 chats overflow-hidden  hover:overflow-auto">
+                <MessageBox chats={chats?.data} />
 
             </div>
             <div className="absolute w-full bg-white z-10 bottom-0 px-5">

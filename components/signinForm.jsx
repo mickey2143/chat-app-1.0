@@ -2,21 +2,30 @@
 import Button from "@/components/customComponents/button";
 import Link from "next/link";
 import CustomInput from "@/components/customComponents/input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+// import { useActionState } from "react"
+import { authenticate } from "@/lib/action"
+import { signIn } from "next-auth/react";
+
 
 function Form() {
+
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [busy, setBusy] = useState(false);
 
     const handleSigin = async (e) => {
+
         e.preventDefault();
         if (username === "" | password === "") {
 
             toast.error("Please fill in the credentials")
         } else {
             try {
+                // await SignIn("credentials", { username, password })
+
+                setBusy(true);
                 fetch("/api/login", {
                     method: "POST",
                     body: JSON.stringify({ username, password }),
@@ -26,7 +35,13 @@ function Form() {
                         return res.json();
                     })
                     .then((data) => {
-                        toast.success("sigin Successfully")
+                        if (data.success) {
+                            toast.success("sigin Successfully")
+                            document.cookie = `accessToken=${data?.data?.accessToken};path="/";Max-Age=30`
+                        } else {
+                            toast.error("Sorry, it is from our Server please Try again")
+
+                        }
                         console.log(data)
                     })
                     .catch((err) => {
@@ -36,7 +51,9 @@ function Form() {
                     .finally(() => {
                         setBusy(false);
                     });
-            } catch (error) { }
+            } catch (error) {
+                console.log(error)
+            }
         }
     };
 
@@ -69,9 +86,9 @@ function Form() {
             </div>
             <div className="mb-2 w-full">
                 <Button
-                    type="primary"
-                    onClick={(e) => console.log(e)}
-                    text="SignIn"
+                    type="bg-black"
+                    onClick={(e) => console.log("buuton clicked")}
+                    text="Login"
                     busy={busy}
                 />
             </div>

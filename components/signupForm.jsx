@@ -35,6 +35,7 @@ function Form() {
                     toast("Account Created Successfully");
                     setBusy(false)
                     setRegistered(true)
+                    setRecovery(data?.recovery)
                 } else {
                     setBusy(false)
                     toast.error(data.error)
@@ -42,6 +43,7 @@ function Form() {
 
             } catch (error) {
                 toast.error(error)
+                setBusy(false)
             }
         }
 
@@ -61,6 +63,7 @@ function Form() {
                 toast.success("Username Generated");
                 setBusy(false)
                 setRecovery(data.recovery)
+                setRegistered(data.success)
             } else {
                 setBusy(false)
                 toast.error(data.error)
@@ -110,7 +113,7 @@ function Form() {
                     <Button
                         type="bg-black"
                         onClick={(e) => console.log("buuton clicked")}
-                        text="SignUp"
+                        text="Register"
                         busy={busy}
                     />
                 </div>
