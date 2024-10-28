@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Button = ({ type = "bg-blue-950", text, onClick, busy = false, textColor = "text-white" }) => {
   return (
     <button

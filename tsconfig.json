@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/searchBar.jsx"
+    "components/searchBar.jsx",
+    "components/customComponents/button.jsx"
   ],
   "exclude": ["node_modules"]
 }

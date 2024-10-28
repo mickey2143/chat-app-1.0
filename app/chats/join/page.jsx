@@ -1,5 +1,6 @@
 import Nav from "@/components/nav";
 import Profile from "@/components/profile";
+import JoinGroup from "@/components/joinGroup"
 
 export default function Page() {
     return (

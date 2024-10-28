@@ -2,7 +2,7 @@ import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Providers from "./redux/Provider"
-import NewGroup from "@/components/NewGroup";
+import NewGroup from "@/components/joinGroup";
 import { SessionProvider } from "next-auth/react";
 
 export const metadata = {
@@ -15,15 +15,15 @@ export default function RootLayout({ children }) {
 
   return (
     // <SessionProvider>
-      <Providers >
-        <html lang="en">
-          <body className="bg-white text-foreground h-screen w-full">
-            {children}
-            <ToastContainer className={"w-1/2"} />
-            <NewGroup />
-          </body>
-        </html>
-      </Providers>
+    <Providers >
+      <html lang="en">
+        <body className="bg-white text-foreground h-screen w-full">
+          {children}
+          <ToastContainer className={"w-1/2"} />
+          <NewGroup />
+        </body>
+      </html>
+    </Providers>
     // </SessionProvider>
   );
 }
