@@ -1,13 +1,16 @@
 import { NextResponse } from "next/server";
+import { verifyToken } from "@/app/utils/tokens";
+import { cookies } from "next/headers";
 
 export async function GET(request, res) {
-  // const session = await auth();
-  const session = true;
   let resp;
+  const cookiesStore = cookies();
   const header = new Headers(request.headers);
   const user_id = header.get("user_id");
+  const accessToken = cookiesStore.get("accessToken")?.value;
+  const token = true;
 
-  if (session) {
+  if (token) {
     resp = {
       data: [
         {
@@ -57,7 +60,8 @@ export async function GET(request, res) {
       ],
     };
   } else {
-    resp = { status: 401, message: "Access Denied" };
+    resp = { success: false, token: accessToken };
   }
+
   return NextResponse.json(resp);
 }

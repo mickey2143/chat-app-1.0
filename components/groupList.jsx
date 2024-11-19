@@ -42,8 +42,8 @@ function GroupList({ groups }) {
 
                 {groups?.map((group) => (
 
-                    <div key={group?.id} onClick={() => openChat(group.id)} className="flex select-none cursor-pointer gap-2 items-center w-full">
-                        <div className="h-12 w-12 p-4 rounded-full relative bg-pink-600 text-white flex justify-center items-center">
+                    <div key={group?.id} onClick={() => openChat(group.id)} className="flex bg-white select-none cursor-pointer gap-2 items-center w-full p-4 rounded-md">
+                        <div className="h-10 w-10 p-4 rounded-full relative bg-pink-600 text-white flex justify-center items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-9">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                             </svg>

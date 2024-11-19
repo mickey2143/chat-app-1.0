@@ -31,11 +31,13 @@ function Form() {
                 const data = await res.json()
 
                 if (data.success) {
-                    console.log(data)
+                    const seedPhrase = data.keys.seed.split(" ")
                     toast("Account Created Successfully");
+                    setRecovery(seedPhrase)
+                    setRegistered(data.success)
                     setBusy(false)
-                    setRegistered(true)
-                    setRecovery(data?.recovery)
+                    document.cookie = `accessToken=${data?.accessToken};path="/";Max-Age=30`
+
                 } else {
                     setBusy(false)
                     toast.error(data.error)
@@ -50,31 +52,32 @@ function Form() {
 
     };
 
-    const generateUserName = async () => {
-        if (busy) return
+    // const generateUserName = async () => {
+    //     if (busy) return
 
-        try {
-            setBusy(true)
-            const res = await fetch("/api/generateName");
-            const data = await res.json();
-            if (data.success) {
-                // setUserName(data.username);
-                console.log(data)
-                toast.success("Username Generated");
-                setBusy(false)
-                setRecovery(data.recovery)
-                setRegistered(data.success)
-            } else {
-                setBusy(false)
-                toast.error(data.error)
-            }
+    //     try {
+    //         setBusy(true)
+    //         const res = await fetch("/api/generateName");
+    //         const data = await res.json();
+    //         if (data.success) {
+    //             // setUserName(data.username);
+    //             toast.success("Username Generated");
+    //             setBusy(false)
+    //             setRegistered(data.success)
+    //             console.log(registered)
+    //             const seedPhrase = data.recovery.keys.seed.split(" ")
+    //             setRecovery(seedPhrase)
+    //         } else {
+    //             setBusy(false)
+    //             toast.error(data.error)
+    //         }
 
-        } catch (error) {
+    //     } catch (error) {
 
-            toast.error(error)
-        }
+    //         toast.error(error)
+    //     }
 
-    };
+    // };
 
     {
         if (!registered) {
@@ -125,32 +128,39 @@ function Form() {
         } else {
             return (
 
-                <form
-                    onSubmit={(e) => handleSubmit(e)}
-                    className="bg-white slide-in max-w-6xl md:w-1/2 w-full p-5 flex items-center justify-center flex-col"
-                >
-                    <div className=" w-full mb-5">
-                        <CustomInput
-                            type="text"
-                            placeholder="Create a Unique username"
-                            name="phrase"
-                            label="Password Recovery Key"
-                            value={recovery}
-                            readOnly={true}
-                        />
-                        <p className="text-xs text-red-700">Please ensure to keep this phrase safe once lost you cannot recover your account when passowrd is forgotten</p>
-                    </div>
+                <div className="bg-red flex justify-center max-w-6xl md:w-1/2 w-full flex-col items-center">
+                    <div className="p-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 ">
+                        {recovery?.map((phrase, id) => (<span className="bg-white border border-gray-200 py-2 px-4 w-28 rounded-lg">{id + 1} {phrase}</span>))}
 
-                    <div className="mb-4 w-full">
-                        <Button
-                            type="primary"
-                            onClick={(e) => console.log("buuton clicked")}
-                            text="Copy"
-                            busy={busy}
-                        />
                     </div>
+                    <p className="text-blue-950 my-4 select-none cursor-pointer"
+                        onClick={() => navigator.clipboard.writeText(recovery.join(" ")).then(() => {
+                            toast.info("Copied to clipboard")
+                        }).catch((err) => toast.error("Sorry, Unable to Copy"))}
+                    >Copy to Clipboard</p>
+                    <Link href={"/chats/join"}>
+                        <div className="mb-4 w-full">
+                            <Button
+                                type="bg-black"
+                                onClick={(e) => true}
+                                text="Join a Gropu"
+                                busy={busy}
+                            />
+                        </div>
+                    </Link>
+                    <Link href={"/chats/create"}>
+                        <div className="mb-4 w-full">
+                            <Button
+                                type="bg-black"
+                                onClick={(e) => true}
+                                text="Create a Group"
+                                busy={busy}
+                            />
+                        </div>
+                    </Link>
 
-                </form >
+                </div>
+
             )
         }
     }

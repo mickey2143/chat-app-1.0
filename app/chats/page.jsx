@@ -27,7 +27,7 @@ function page() {
             </main>
 
             <div className="h-screen md:hidden w-full">
-                {(openGroup) ? <ChatRoom page={page} /> : <nav className="w-full h-full fixed top-0 overflow-hidden  hover:overflow-auto chats bg-white flex flex-col px-6 py-7 rounded-xl shadow-xl" ><ChatSidebar /></nav>}
+                {(openGroup) ? <ChatRoom page={page} /> : <nav className="bg-gray-50 w-full h-full fixed top-0 overflow-hidden  hover:overflow-auto chats  flex flex-col px-6 rounded-xl shadow-xl" ><ChatSidebar /></nav>}
             </div>
         </div>
     )

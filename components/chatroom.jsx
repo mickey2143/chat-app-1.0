@@ -50,7 +50,7 @@ function ChatRoom({ page }) {
                 <MessageBox chats={chats?.data} />
 
             </div>
-            <div className="absolute w-full bg-white z-10 bottom-0 px-5">
+            <div className="fixed w-full bg-white z-10 bottom-0 px-5">
 
                 <textarea
                     className="w-full  placeholder:p-3 bg-slate-100 outline-none px-4 overflow-hidden py-3  my-4  text-base border rounded-3xl focus:outline-none focus:border-blue-950"

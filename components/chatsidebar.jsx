@@ -7,7 +7,9 @@ import Link from 'next/link';
 import Nav from './nav';
 
 
+
 export default function ChatSidebar({ changePage }) {
+
     let [groups, setGroup] = useState([]);
     let [sidebar, setSidebar] = useState(false);
 
@@ -30,7 +32,7 @@ export default function ChatSidebar({ changePage }) {
     return (
         // <p>sidebar</p>
         <>
-            <div className="flex items-center justify-between z-10 pb-8 bg-white sticky top-0">
+            <div className="flex items-center justify-between z-10 pb-8 sticky top-0 pt-5">
                 <Profile />
                 <span className="" onClick={() => setSidebar(!sidebar)}>
                     <svg

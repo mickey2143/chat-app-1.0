@@ -40,17 +40,17 @@ function Form() {
                             toast.error("Sorry, it is from our Server please Try again")
 
                         }
-                        console.log(data)
                     })
                     .catch((err) => {
                         setBusy(false);
-                        console.log(err);
+                        toast.error("Sorry, it is from our Server please Try again")
+
                     })
                     .finally(() => {
                         setBusy(false);
                     });
             } catch (error) {
-                console.log(error)
+
             }
         }
     };

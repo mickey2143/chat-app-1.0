@@ -7,6 +7,7 @@ const bcrypt = require("bcrypt");
 import { PrismaClient } from "@prisma/client";
 // import { generateKey } from "crypto";
 import crypto from "crypto";
+import { generateToken } from "@/app/utils/tokens";
 
 const prisma = new PrismaClient();
 const saltRounds = 15;
@@ -24,7 +25,6 @@ function generateKey(password) {
 
 export async function POST(request) {
   const body = await request.json();
-  console.log(body.username);
 
   const user = await prisma.users.findMany({
     where: {
@@ -43,10 +43,20 @@ export async function POST(request) {
       },
     });
 
-    console.log(hashPassword);
     if (newUser.password) {
+      const accessToken = generateToken({
+        username: newUser.username,
+        id: newUser.id,
+      });
+
       return Response.json(
-        { success: true, newUser, recovery, keys },
+        {
+          success: true,
+          user: { username: newUser.username, id: newUser.id },
+          recovery,
+          keys,
+          accessToken,
+        },
         { status: 200, statusText: "success" }
       );
     } else {
