@@ -5,8 +5,8 @@ import JoinGroup from "@/components/joinGroup"
 export default function Page() {
     return (
         <div className="flex justify-between gap-3 w-full h-full">
-            <main className="hidden w-[73%] h-full fixed left-[26%] bg-white md:flex flex-col pt-7 rounded-xl gap-10 shadow-xl">
-                Hi
+            <main className="hidden w-full h-full left-[26%] bg-white md:flex flex-col py-7 rounded-xl gap-10 shadow-xl flex-grow overflow-y-scroll">
+                <JoinGroup />
             </main>
 
             <div className=" md:hidden w-full h-full fixed top-0 overflow-hidden  hover:overflow-auto chats bg-white flex flex-col px-6 py-7 rounded-xl shadow-xl">
@@ -31,7 +31,9 @@ export default function Page() {
                     {/* {sidebar && <SearchBar close={setSidebar} />} */}
                 </div>
                 <Nav />
-                <p>Hi Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis optio, similique iusto quasi officiis qui quam est rerum porro esse eveniet suscipit libero expedita animi consequatur earum neque nemo obcaecati?</p>
+                <JoinGroup />
+
+
             </div>
         </div>
     );

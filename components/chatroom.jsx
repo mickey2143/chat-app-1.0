@@ -26,7 +26,7 @@ function ChatRoom({ page }) {
     }
     return (
         <>
-            <div className="flex shadow-md gap-2 items-center w-full py-3 px-5 sticky bg-white top-0 z-10">
+            <div className="flex shadow-md  gap-2 items-center w-full py-3 px-5 sticky bg-white top-0 z-10">
                 <span onClick={handleReturn} className="select-none cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
@@ -50,7 +50,7 @@ function ChatRoom({ page }) {
                 <MessageBox chats={chats?.data} />
 
             </div>
-            <div className="fixed w-full bg-white z-10 bottom-0 px-5">
+            <div className="relative w-full bg-white z-10 bottom-0 left-0 px-5">
 
                 <textarea
                     className="w-full  placeholder:p-3 bg-slate-100 outline-none px-4 overflow-hidden py-3  my-4  text-base border rounded-3xl focus:outline-none focus:border-blue-950"

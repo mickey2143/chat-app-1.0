@@ -134,7 +134,7 @@ function JoinGroup() {
     return (
         <>
             <TopNav />
-            <main className=" w-full md:px-20 px-10  h-full pt-24 text-blue-950 pb-5">
+            <div className=" w-full md:px-20 px-10  h-full md:pt-24  text-blue-950">
                 <h1 className="text-2xl md:text-3xl font-bold mb-3">Hi there, Welcome to Chatanoni, A web Platform that allows you chat anonymously with Anonys of Same Likes</h1>
 
                 <p>Select Group to get Stated</p>
@@ -147,7 +147,7 @@ function JoinGroup() {
                 <Pagination currentPage={currentPage} length={groups.length} postsPerPage={chatGroupPerPage} setCurrentPage={setCurrentPage} showing={0} />
 
                 <Button text={"Join"} textColor="text-white" busy={true} onClick={(e) => console.log("Hi")} type="bg-blue-950" key={1} />
-            </main>
+            </div>
         </>
 
     )

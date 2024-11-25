@@ -5,7 +5,7 @@ export default function MessageBox({ chats }) {
         <>
             {chats?.map((chat) => (
                 (chat.user_id == 102) ? (
-                    <div className="flex " key={chat.id}>
+                    <div className="flex w-full " key={chat.id}>
                         <div className="w-full ml-3">
                             <div className="flex items justify-end">
                                 <h3 className="text-sm">You</h3>

@@ -13,9 +13,9 @@ function Profile() {
                 </div>
             </div>
 
-            <div className="fixed w-full h-full z-10 top-0 flex items-center right-0 justify-center bg-blend-multiply">
-                {/* <h1>Hello, how are you doing</h1> */}
-            </div>
+            {/* <div className="fixed w-full h-full z-10 top-0 flex items-center right-0 justify-center bg-blend-multiply">
+                <h1>Hello, how are you doing</h1>
+            </div> */}
         </>
     )
 }
