@@ -20,7 +20,7 @@ function Nav() {
   //     break;
   // }
   return (
-    <div className="sticky mb-8 top-20 z-10">
+    <div className="sticky pb-8 top-24 z-10 bg-white">
       <ul className="flex w-full justify-between items-center py-2 rounded-3xl">
         <Link href={"/chats"}>
           <li className={`${clan} cursor-pointer select-none`}>Clan</li>

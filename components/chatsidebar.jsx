@@ -32,7 +32,7 @@ export default function ChatSidebar({ changePage }) {
     return (
         // <p>sidebar</p>
         <>
-            <div className="flex items-center justify-between z-10 pb-8 sticky top-0 pt-5">
+            <div className="flex items-center justify-between z-10 pb-8 sticky top-0">
                 <Profile />
                 <span className="" onClick={() => setSidebar(!sidebar)}>
                     <svg

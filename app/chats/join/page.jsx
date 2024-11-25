@@ -9,7 +9,7 @@ export default function Page() {
                 <JoinGroup />
             </main>
 
-            <div className=" md:hidden w-full h-full fixed top-0 overflow-hidden  hover:overflow-auto chats bg-white flex flex-col px-6 py-7 rounded-xl shadow-xl">
+            <div className=" md:hidden w-full h-full fixed top-0 overflow-y-scroll chats bg-white flex flex-col px-6 rounded-xl shadow-xl">
                 <div className=" flex items-center justify-between z-10 pb-8 bg-white sticky top-0">
                     <Profile />
                     <span className="">

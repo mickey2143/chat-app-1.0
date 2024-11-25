@@ -133,11 +133,10 @@ function JoinGroup() {
     }
     return (
         <>
-            <TopNav />
-            <div className=" w-full md:px-20 px-10  h-full md:pt-24  text-blue-950">
-                <h1 className="text-2xl md:text-3xl font-bold mb-3">Hi there, Welcome to Chatanoni, A web Platform that allows you chat anonymously with Anonys of Same Likes</h1>
+            <div className=" w-full h-full md:pt-24  text-blue-950">
+                <h1 className="text-xl md:text-2xl font-bold mb-3">Hi there, Welcome to Chatanoni, Join a Group To get Stated</h1>
 
-                <p>Select Group to get Stated</p>
+                <p>Join a Group </p>
                 <SearchBar placeholder="Search Group By Name,likes etc" />
 
                 <ul className="list-image-none my-2 space-y-3">
