@@ -49,7 +49,7 @@ function JoinGroup() {
         let lastPage = start + chatGroupPerPage;
         const displayGroup = groups?.slice(start, lastPage);
         setChatGroupToDisplay(displayGroup);
-        select()
+        // select()
     }, [currentPage]);
 
     function select() {
