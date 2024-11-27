@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 // Get the current path
 function Nav() {
   const [currentPage, setCurrentPage] = useState(
-    window?.document?.URL.split("/").splice(-1)[0]
+    location?.pathname.split("/").splice(-1)[0]
   );
   useEffect(() => {
     setCurrentPage(location?.pathname.split("/").splice(-1)[0]);
