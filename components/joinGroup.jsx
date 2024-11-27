@@ -53,9 +53,12 @@ function JoinGroup() {
     }, [currentPage]);
 
     function select() {
-        const id = location.hash.replace("#", "")
-        const newGroup = groups.filter((group) => group.id == id)
-        setSelectGroup(newGroup[0])
+        if (typeof window !== 'undefined') {
+
+            const id = location?.hash.replace("#", "")
+            const newGroup = groups.filter((group) => group.id == id)
+            setSelectGroup(newGroup[0])
+        }
     }
     return (
         <>

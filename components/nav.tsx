@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 
 // Get the current path
 function Nav() {
-  const [currentPage, setCurrentPage] = useState(
-    location?.pathname.split("/").splice(-1)[0]
-  );
+  const [currentPage, setCurrentPage] = useState("");
   useEffect(() => {
-    setCurrentPage(location?.pathname.split("/").splice(-1)[0]);
+    if (typeof window !== "undefined") {
+      const url = location?.pathname?.split("/").splice(-1)[0];
+      setCurrentPage(url);
+    }
   }, [currentPage]);
 
   const active =
