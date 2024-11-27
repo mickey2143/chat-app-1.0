@@ -1,6 +1,7 @@
 "use client"
 import { useDispatch, useSelector } from "react-redux";
 import { setId } from "@/app/redux/openGroup";
+import { useRouter } from "next/navigation";
 
 
 
@@ -29,12 +30,12 @@ function BoilerTemp() {
 }
 
 function GroupList({ groups }) {
-
+    const router = useRouter()
     const dispatch = useDispatch()
 
 
     function openChat(id) {
-        console.log(id)
+        router.push("/chats")
         dispatch(setId(id))
     }
     return (

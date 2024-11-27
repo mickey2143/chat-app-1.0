@@ -21,7 +21,11 @@ export default function Pagination({
     <div className="flex items-center justify-between mt-4 bg-white py-3 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
         <a
-          onClick={() => currentPage !== 0 && setCurrentPage(currentPage - 1)}
+          onClick={() =>
+            currentPage == 1
+              ? setCurrentPage(1)
+              : setCurrentPage(currentPage - 1)
+          }
           href="#"
           className="relative inline-flex items-center rounded-md border border-black-300 bg-white px-4 py-2 text-sm font-medium text-black-700 hover:bg-black-50"
         >
@@ -30,7 +34,9 @@ export default function Pagination({
         <span
           className="relative ml-3 inline-flex items-center rounded-md border border-black-300 bg-white px-4 py-2 text-sm font-medium text-black-700 hover:bg-black-50"
           onClick={() =>
-            currentPage !== length && setCurrentPage(currentPage + 1)
+            currentPage == total
+              ? setCurrentPage(1)
+              : setCurrentPage(currentPage + 1)
           }
         >
           Next

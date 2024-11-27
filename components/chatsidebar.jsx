@@ -53,7 +53,7 @@ export default function ChatSidebar({ changePage }) {
                 {sidebar && <SearchBar close={setSidebar} />}
             </div>
             <Nav />
-            <GroupList groups={groups} />z
+            <GroupList groups={groups} />
         </>
     )
 }

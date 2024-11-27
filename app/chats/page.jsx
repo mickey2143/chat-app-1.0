@@ -22,7 +22,7 @@ function page() {
 
     return (
         <div className="flex justify-between w-full h-full">
-            <main className="hidden w-full h-full left-[26%] bg-white md:flex flex-col pt-7 rounded-xl gap-10 shadow-xl flex-grow">
+            <main className="hidden w-full h-full left-[26%]  bg-gray-50 md:flex flex-col pt-7 rounded-xl gap-10 shadow-xl flex-grow">
                 {(openGroup) ? <ChatRoom page={page} /> : <NotReady />}
             </main>
 

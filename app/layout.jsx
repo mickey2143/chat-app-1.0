@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     // <SessionProvider>
     <Providers >
       <html lang="en">
-        <body className="bg-white text-foreground h-screen w-full">
+        <body className="bg-gray-50 text-foreground h-screen w-full">
           {children}
           <ToastContainer className={"w-3/2"} />
         </body>

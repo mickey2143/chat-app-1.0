@@ -2,7 +2,7 @@
 function SearchBar({ close, placeholder = "Search Your Chats" }) {
   return (
     // <div className="w-full absolute z-20  py-3">
-    <div className=" bg-slate-50 relative h-12 my-5">
+    <div className=" bg-slate-50 relative h-12 my-5 z-10">
       <input
         type="search"
         placeholder={placeholder}

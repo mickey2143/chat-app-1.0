@@ -24,12 +24,12 @@ function ChatPage() {
     return (
         <div className="flex justify-between gap-3 w-full h-full">
 
-            <main className="hidden w-[73%] h-full fixed left-[26%] bg-white md:flex flex-col pt-7 rounded-xl gap-10 shadow-xl">
+            <main className="hidden w-[73%] h-full fixed left-[26%]  bg-gray-50 md:flex flex-col pt-7 rounded-xl gap-10 shadow-xl">
                 {(openGroup) ? <ChatRoom page={page} /> : <NotReady />}
             </main>
 
             <div className="h-screen md:hidden w-full">
-                {(openGroup) ? <ChatRoom page={page} /> : <nav className="w-full h-full fixed top-0 overflow-hidden  hover:overflow-auto chats bg-white flex flex-col px-6 py-7 rounded-xl shadow-xl" ><ChatSidebar /></nav>}
+                {(openGroup) ? <ChatRoom page={page} /> : <nav className="w-full h-full fixed top-0 overflow-hidden  hover:overflow-auto chats  bg-gray-50 flex flex-col px-6 py-7 rounded-xl shadow-xl" ><ChatSidebar /></nav>}
             </div>
         </div>
 
