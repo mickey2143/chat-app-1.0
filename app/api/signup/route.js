@@ -25,6 +25,7 @@ function generateKey(password) {
 
 export async function POST(request) {
   const body = await request.json();
+  console.log(body);
 
   const user = await prisma.users.findMany({
     where: {

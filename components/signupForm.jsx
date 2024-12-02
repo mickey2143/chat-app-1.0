@@ -36,7 +36,7 @@ function Form() {
                     setRecovery(seedPhrase)
                     setRegistered(data.success)
                     setBusy(false)
-                    document.cookie = `accessToken=${data?.accessToken};path="/";Max-Age=30`
+                    document.cookie = `accessToken=${data?.accessToken};path="/";Max-Age=30:http="true"`
 
                 } else {
                     setBusy(false)
@@ -130,7 +130,7 @@ function Form() {
 
                 <div className="bg-red flex justify-center max-w-6xl md:w-1/2 w-full flex-col items-center">
                     <div className="p-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 ">
-                        {recovery?.map((phrase, id) => (<span className="bg-white border border-gray-200 py-2 px-4 w-28 rounded-lg">{id + 1} {phrase}</span>))}
+                        {recovery?.map((phrase, id) => (<span className="bg-white border border-gray-200 py-2 px-4 w-32 rounded-lg">{id + 1} {phrase}</span>))}
 
                     </div>
                     <p className="text-blue-950 my-4 select-none cursor-pointer"
