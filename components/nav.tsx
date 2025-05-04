@@ -5,12 +5,14 @@ import { useEffect, useState } from "react";
 // Get the current path
 function Nav() {
   const [currentPage, setCurrentPage] = useState("");
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const url = location?.pathname?.split("/").splice(-1)[0];
-      setCurrentPage(url);
-    }
-  }, [currentPage]);
+  // setInterval(())
+  setInterval(()=>{
+    // const url = window?.location?.pathname?.split("/").splice(-1)[0];
+
+    // if (typeof window !== "undefined") {
+    //   setCurrentPage(url);
+    // }
+  },1000)
 
   const active =
     "text-blue-950 bg-white shadow-md py-2 rounded-3xl px-5 font-bold";
@@ -31,9 +33,7 @@ function Nav() {
         </Link>
 
         <Link href={"/chats/create"}>
-          <li
-            className={currentPage === "create" ? `${active}` : `${unactive}`}
-          >
+          <li className={currentPage === "create" ? `${active}` : `${unactive}`}>
             Create
           </li>
         </Link>

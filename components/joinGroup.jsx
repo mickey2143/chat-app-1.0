@@ -63,7 +63,7 @@ function JoinGroup() {
                     <SearchBar placeholder="Search Group By Name,likes etc" />
                 </div>
 
-                <ul className="list-image-none my-2 flex flex-col gap-3 sm:grid grid-cols-2">
+                <ul className="list-image-none my-2 gap-5 grid grid-cols-1 sm:grid-cols-2">
                     {chatGroupTodisplay.map((group) => (<GroupDetail group={group} />))}
                 </ul>
 

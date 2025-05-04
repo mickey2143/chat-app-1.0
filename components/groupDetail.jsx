@@ -21,14 +21,7 @@ function GroupDetail({ group }) {
             </div>
             <p className="text-blue-950">Anonys ({group.members})</p>
             <p className="text-slate-400 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed hic repudiandae minus nesciunt dolore at exercitationem adipisci aspernatur cupiditate quod</p>
-            <div className="text-sm pt-7 flex gap-x-1 items-center">
-                {[1, 2, 3, 4].map(() => (<div className="h-8 w-8 p-3 text-xs rounded-full relative bg-blue-950 text-white flex justify-center items-center">
-                    MA
-                    {/* <span className="bg-green-500 absolute bottom-0 right-0 block rounded-full h-3 w-3">.</span> */}
-                </div>))}
-                +3
-
-            </div>
+            
             <div className="pt-5 max-w-32 w-full">
                 <Button text={"Join"} textColor="text-white" />
             </div>

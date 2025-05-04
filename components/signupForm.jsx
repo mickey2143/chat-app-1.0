@@ -2,9 +2,9 @@
 import Button from "@/components/customComponents/button";
 import Link from "next/link";
 import CustomInput from "@/components/customComponents/input";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { toast } from "react-toastify";
-
+import { startRegistration } from '@simplewebauthn/browser';
 
 function Form() {
     const [username, setUserName] = useState("");
@@ -17,37 +17,37 @@ function Form() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (username === "" || password === "") {
+
+        if (username === "") {
             toast.error("Please fill the credentials")
-
-        } else {
-            setBusy(true)
-
+        }else{
+            // GET REGISTRATION DETAILS FROM SERVER
             try {
-                const res = await fetch("api/signup", {
-                    method: "POST",
-                    body: JSON.stringify({ username, password })
-                })
-                const data = await res.json()
+                const res = await fetch("/api/registration",{
+                    method:"POST",
+                    credentials:"include",
+                    body:JSON.stringify({username})
+                });
+                const data = await res.json();
+                console.log(data)
 
-                if (data.success) {
-                    const seedPhrase = data.keys.seed.split(" ")
-                    toast("Account Created Successfully");
-                    setRecovery(seedPhrase)
-                    setRegistered(data.success)
-                    setBusy(false)
-                    document.cookie = `accessToken=${data?.accessToken};path="/";Max-Age=30:http="true"`
+                const registration = await startRegistration(data.options)
+                console.log(registration)
 
-                } else {
-                    setBusy(false)
-                    toast.error(data.error)
-                }
+                const verify = await fetch("/api/verify",{
+                    method:"POST",
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+                    credentials:"include",
+                    body:JSON.stringify({registration})
+                });
 
             } catch (error) {
-                toast.error(error)
-                setBusy(false)
+                console.log(error)
             }
         }
+        
 
 
     };

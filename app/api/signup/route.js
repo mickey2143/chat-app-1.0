@@ -1,19 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Stream } from "stream";
-// import bcrypt from "bcrypt";
-
 const bip39 = require("bip39");
 const bcrypt = require("bcrypt");
 import { PrismaClient } from "@prisma/client";
 // import { generateKey } from "crypto";
 import crypto from "crypto";
 import { generateToken } from "@/app/utils/tokens";
+import User from "../../../database/model/user"
+import connectToDatabase from "../../../database/connection"
 
-const prisma = new PrismaClient();
-const saltRounds = 15;
+
 
 async function encryptPassword(password) {
-  const hash = await bcrypt.hash(password, saltRounds);
+  const hash = await bcrypt.hash(password, 15);
   return hash;
 }
 
@@ -24,49 +23,58 @@ function generateKey(password) {
 }
 
 export async function POST(request) {
+  let resp
   const body = await request.json();
-  console.log(body);
+  const password = body.password;
+  const username = body.username
+  
+  try{
+  await connectToDatabase()
+  const existUser = await User.findOne({username:username})
+  console.log(username)
+  console.log(existUser)
 
-  const user = await prisma.users.findMany({
-    where: {
-      OR: [{ username: body.username }],
-    },
-  });
+  
+  
+  if (!existUser) {
 
-  if (user.length <= 0) {
-    const hashPassword = await encryptPassword(body.password);
-    const recovery = crypto.randomUUID();
-    const keys = generateKey(hashPassword);
-    const newUser = await prisma.users.create({
-      data: {
-        username: body.username,
-        password: hashPassword,
-      },
-    });
-
+    const hashPassword = await encryptPassword(password)
+    let newUser = await new User({username,password:hashPassword})
+    newUser = await newUser.save()
+    console.log(newUser)
+    console.log(hashPassword)
+    
     if (newUser.password) {
       const accessToken = generateToken({
         username: newUser.username,
         id: newUser.id,
       });
 
-      return Response.json(
-        {
-          success: true,
-          user: { username: newUser.username, id: newUser.id },
-          recovery,
-          keys,
-          accessToken,
-        },
-        { status: 200, statusText: "success" }
-      );
+    
+      resp = {
+        success: true,
+        user: { username: newUser.username, id: newUser.id },
+        accessToken,
+      },
+      { status: 200, statusText: "success" }
+    
     } else {
-      return Response.json({
+
+      resp = {
         success: false,
-        error: "Cannot Create Account Try Agian Later",
-      });
+        error: "Cannot Create Account Try Again Later",
+      }
+      
     }
   } else {
-    return Response.json({ success: false, error: "User already exists" });
+    resp = { success: false, error: "User already exists" }
   }
+  
+
+  }catch(err){
+    console.log(err)
+    resp = { success: false, error: "unable to Register User" }
+  }
+
+  return Response.json(resp);
 }

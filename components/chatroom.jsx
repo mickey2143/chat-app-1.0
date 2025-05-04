@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from "react-redux"
 import { setId } from "@/app/redux/openGroup"
 import MessageBox from "@/components/MessageBox"
 import { useEffect, useState } from "react"
-
+import {io} from "socket.io-client"
 function ChatRoom({ page }) {
+    const [newMesg,setNewMsg] = useState()
     let [chats, setChats] = useState()
     const dispatch = useDispatch()
     const openGroup = useSelector((state) => state.updateGroupId.groupId)
@@ -23,6 +24,25 @@ function ChatRoom({ page }) {
     function handleReturn() {
         dispatch(setId(false))
 
+    }
+
+
+    function sendMsg(){
+              
+        let msg = {
+            id: Math.random(0,1000),
+            user_id: 22,
+            username: "michael",
+            message: newMesg,
+            timeStamp: new Date().getUTCDay(),
+          }
+        console.log(msg)
+        fetch(`/api/chats/${openGroup}`,{ method: "POST",body:JSON.stringify(msg)}).then((res) => res.json()).then((data) => {
+            console.log(data)
+            setChats(data)
+        }).catch(error => {
+            console.log(error)
+        })
     }
     return (
         <>
@@ -46,10 +66,10 @@ function ChatRoom({ page }) {
                     </div>
                 </div>
             </div>
-            <div className="pb-28 pt-3 px-5 space-y-5 chats overflow-hidden  hover:overflow-auto">
+            <div className="pt-3 px-5 space-y-5 chats overflow-hidden hover:overflow-auto">
                 <MessageBox chats={chats?.data} />
-
             </div>
+
             <div className="relative w-full bg-white z-10 bottom-0 left-0 px-5">
 
                 <textarea
@@ -57,10 +77,12 @@ function ChatRoom({ page }) {
                     // style={{ height: height }}
                     // onChange={handleChange}
                     placeholder="Type your message here..."
-                // value={message}
+                value={newMesg}
+                onChange={(e)=>setNewMsg(e.target.value)}
+
                 />
 
-                <div className="flex absolute top-[35%]  right-14 gap-5 ">
+                <div className="flex absolute top-[35%]  right-14 gap-5 " onClick={sendMsg}>
                     <span className="">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
