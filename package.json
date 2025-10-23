@@ -2,13 +2,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@mui/base": "^5.0.0-beta.40",
-    "@prisma/client": "^5.12.1",
     "@reduxjs/toolkit": "^2.2.2",
     "@simplewebauthn/browser": "^9.0.1",
     "@simplewebauthn/server": "^9.0.3",
@@ -37,7 +36,6 @@
     "@types/node": "20.11.5",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
-    "encoding": "^0.1.13",
-    "prisma": "^5.21.1"
+    "encoding": "^0.1.13"
   }
 }
