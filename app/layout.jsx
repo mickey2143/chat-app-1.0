@@ -2,8 +2,8 @@ import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Providers from "./redux/Provider"
-import NewGroup from "@/components/joinGroup";
 import { SessionProvider } from "next-auth/react";
+import FloatingNavbar from "@/components/floatingBar";
 
 export const metadata = {
   title: "Chat with Friends",
@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
     <Providers >
       <html lang="en">
         <body className="bg-gray-50 text-foreground h-screen w-full">
+          <FloatingNavbar />
           {children}
           <ToastContainer className={"w-3/2"} />
         </body>

@@ -1,85 +1,88 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import chatImage from "./chatting.svg";
-import TopNav from "@/components/topNav";
 
-export default async function Index() {
+export default function Index() {
   return (
-    <div className="h-screen">
-      <TopNav />
-
-      <main className="w-full h-full pt-24 text-blue-950">
-        <section className=" w-full md:flex md:px-20 px-10 md:space-x-2 md:pt-0 pt-10">
-          <div className="md:w-1/2 mb-3 flex  justify-center flex-col w-full">
-            <h1 className="text-3xl md:text-5xl font-bold mb-3">
-              Chat Anonymously With People of same Likes
+    <div className="min-h-screen pt-24 flex flex-col bg-gradient-to-b from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-950 dark:to-black text-blue-950 dark:text-white">
+      {/* Hero Section */}
+      <main className="flex-1 flex flex-col justify-center">
+        <section className="flex flex-col md:flex-row items-center justify-between w-full px-6 md:px-20 py-16 space-y-10 md:space-y-0">
+          {/* Left content */}
+          <div className="flex flex-col md:w-1/2 text-center md:text-left space-y-5">
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+              Chat <span className="text-blue-600">Anonymously</span> With People Who Share Your Interests
             </h1>
-            <p className="mb-3 ">
-              Do you love sports,games or news Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Qui sequi fuga debitis pariatur
-              aspernatur nam atque eligendi officiis amet tempora voluptatem
+            <p className="text-base md:text-lg opacity-80">
+              Connect freely with others who share your passions — whether it’s sports, gaming, news, or personal growth. 
+              Stay completely anonymous, safe, and authentic.
             </p>
-            <div className="w-60 pt-3">
+            <div className="flex justify-center md:justify-start">
               <Link
-                href={"/signup"}
-                className="w-full  bg-blue-950 px-7 py-3 text-white rounded-lg"
+                href="/auth/signup"
+                className="bg-blue-950 text-white px-7 py-3 rounded-xl hover:bg-blue-800 transition duration-300 shadow-md"
               >
                 Get Started
               </Link>
             </div>
           </div>
-          <div className="md:w-1/2 h-1/2 mb-10 w-full flex justify-center">
-            <Image src={chatImage} alt="an image of a chat" />
+
+          {/* Right image */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px] rounded-3xl overflow-hidden backdrop-blur-xl bg-white/10 dark:bg-black/20 shadow-2xl p-4">
+              <Image
+                src={chatImage}
+                alt="Anonymous chat illustration"
+                className="object-contain w-full h-full"
+                priority
+              />
+            </div>
           </div>
         </section>
 
-        <section className="md:px-20 px-10">
-          <h2 className="font-bold md:text-5xl text-3xl w-full flex justify-center mt-10">
-            What it is all About
-          </h2>
-          <p className="w-full flex justify-center text-sm">
-            It is an open source, anonymous conversation platform.
+        {/* About Section */}
+        <section className="px-6 md:px-20 py-16 text-center">
+          <h2 className="font-extrabold text-3xl md:text-5xl mb-2">What It’s All About</h2>
+          <p className="text-base opacity-70 mb-10">
+            It’s a safe, open-source platform for real anonymous conversations.
           </p>
 
-          <div className="md:grid-cols-3 sm:grid-col-2 grid mt-10 pb-10 gap-6 ">
-            <div className="shadow-lg p-5 border-blue-950 border rounded-lg ">
-              <h4 className="md:text-3xl text-2xl font-bold">No tracking</h4>
-              <p>
-                We don't use cookies or other scripts that track and identify
-                users, so you stay private
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="p-6 rounded-2xl bg-white/30 dark:bg-black/30 backdrop-blur-lg shadow-md border border-blue-900/20">
+              <h4 className="text-2xl font-bold mb-2">No Tracking</h4>
+              <p className="opacity-80">
+                We don’t track you with cookies or hidden scripts. Your identity stays 100% private.
               </p>
             </div>
 
-            <div className="shadow-lg p-5 border-blue-950 border rounded-lg ">
-              <h4 className="text-2xl font-bold">Open Sourced</h4>
-              <p>
-                We've open sourced our code to the world. No tricks or backdoors
-                up our sleeves.
+            <div className="p-6 rounded-2xl bg-white/30 dark:bg-black/30 backdrop-blur-lg shadow-md border border-blue-900/20">
+              <h4 className="text-2xl font-bold mb-2">Open Source</h4>
+              <p className="opacity-80">
+                Transparent and open to everyone. Explore our code — no tricks, no secrets.
               </p>
             </div>
 
-            <div className="shadow-lg p-5 border-blue-950 border rounded-lg ">
-              <h4 className="text-2xl font-bold">How to Use It</h4>
-              <p>
-                Register with a Unique Username and Password and choose your
-                conversion Likes
+            <div className="p-6 rounded-2xl bg-white/30 dark:bg-black/30 backdrop-blur-lg shadow-md border border-blue-900/20">
+              <h4 className="text-2xl font-bold mb-2">Easy to Use</h4>
+              <p className="opacity-80">
+                Simply register with a unique username and choose your topics of interest — then start chatting instantly.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="bg-blue-950 w-full  md:px-20 p-7 justify-between items-center">
-          <div className="flex flex-coloumn items-center justify-center w-full">
-            <p className="text-white mr-4">Made With Love by Mykel_ani</p>
-            <div className="w-60 pt-3">
-              <Link
-                href={"/signup"}
-                className="w-full  bg-white px-7 py-3 text-blue-950 rounded-lg"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
+        {/* Footer Section */}
+        <section className="bg-blue-950 dark:bg-blue-900 w-full py-12 px-6 md:px-20 text-center rounded-t-3xl">
+          <p className="text-white text-lg font-medium mb-3">
+            Made With ❤️ by <span className="font-bold">Mykel_ani</span>
+          </p>
+          <Link
+            href="/auth/signup"
+            className="inline-block bg-white text-blue-950 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition duration-300"
+          >
+            Join Now
+          </Link>
         </section>
       </main>
     </div>

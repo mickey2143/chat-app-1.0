@@ -3,23 +3,19 @@ import type { NextRequest } from "next/server";
 const BASE_URL = process.env.BASE_URL;
 
 export const config = {
-  matcher: ["/chats"],
+  matcher: ["/chats","/groups","/settings"],
 };
 
 export async function middleware(request: NextRequest) {
   console.log("Request intercepted");
 
-  if (request.nextUrl.pathname.startsWith("/login")) {
-    return NextResponse.rewrite(new URL("/signin", request.url));
-  }
-
-  if (request.nextUrl.pathname.startsWith("/chatsit")) {
+  if (request.nextUrl.pathname.startsWith("/chats") || request.nextUrl.pathname.startsWith("/groups") || request.nextUrl.pathname.startsWith("/settings")) {
     // Get the access token from cookies
     const accessToken = request.cookies.get("accessToken")?.value;
 
     // If no access token is found, redirect to signin
     if (!accessToken) {
-      return NextResponse.redirect(new URL("/signin", request.url));
+      return NextResponse.redirect(new URL("/auth/login", request.url));
     }
 
     try {
